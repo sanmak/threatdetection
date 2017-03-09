@@ -45,15 +45,13 @@ myApp.controller('logController', ['$scope', '$http','fileUpload',
         		$scope.message = '';
 	        	var uploadUrl = "/upload";
 	      		fileUpload.uploadFileToUrl(file, uploadUrl).then(function(response){
-	      			console.log(response);
-                    $scope.myFile = file = null;
 	      			if(response.data.error != null){
-
+                        $scope.message = 'Some error occured. Upload again.';
 	      			}
 	      			else{
-	      				
+	      				$scope.logResult = response.data.res;
 	      			}
-	      			$scope.logResult = response.data.res;
+	      			
 	      			$scope.showGif = true;
 	      		});
 	      	}
