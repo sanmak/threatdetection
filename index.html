@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Log Upload</title>
+	<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular.min.js"></script>  
+	<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.5/angular-route.js"> </script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  	<script type="text/javascript" src = "./control.js"></script>
+	<style>
+		#gifdiv {
+		  height: 400px;
+		  position: relative;
+		}
+		.loader {
+		  position: absolute;
+		  left: 0;
+		  top: 0;
+		  right: 0;
+		  bottom: 0;
+		  margin: auto;
+		}
+	</style>
+</head>
+<body ng-app="myApp" ng-controller="logController">
+<div class = "container-fluid">	
+ 	<div class = "row">
+ 		<div class="col-lg-12 col-md-12 col-xs-12 col-sm-12">
+ 			<div class="panel panel-default">
+				<div class="panel-heading text-center"><strong>Log File Testing Tool</strong></div>
+			  	<div class="panel-body">
+			  		<form class="form-inline">
+			  			<label for="Cinema"> Uplaod File To Perform Operation : </label>
+		    			<input type="file" file-model="myFile" name="upload"><br>
+		    			<button class="btn btn-primary" value="Upload" ng-click = "uploadFile()">Submit</button>
+		    			<span>{{message}}</span>
+		    			<hr>
+	    			</form>
+	    			<div id = 'gifdiv' ng-hide = 'showGif'>
+	    				<img class='loader' src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif">
+	    			</div>
+	    			<table ng-show = 'showGif' class="table table-striped table-bordered table-hover table-condensed">
+	    				<thead>
+	  						<tr>
+								<th>#</th> 
+								<th>Log</th>
+								<th>STATUS ( YES = HACKING | NO = SAFE)</th>
+	  						</tr>
+						</thead>
+	  					<tbody>
+				  			<tr ng-repeat = "logResult in logResult">
+				  				<td>
+				  					{{$index+1}}
+				  				</td>
+				  				<td>
+				  					{{logResult.log}}
+				  				</td>
+				  				<td>
+				  					{{logResult.result}}
+				  				</td>
+				  			</tr>
+				  		</tbody>
+
+	    			</table>
+			  	</div>
+			</div>
+		</div>
+	</div>	
+</div>
+
+
+	<div class="container">
+		
+	</div>
+</body>
+</html>

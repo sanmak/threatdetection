@@ -1,0 +1,16 @@
+{
+  "name": "log-upload-file",
+  "version": "1.0.0",
+  "description": "Log testing tool",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "Sanket Makhija",
+  "license": "ISC",
+  "dependencies": {
+    "async": "^2.1.5",
+    "express": "^4.15.2",
+    "formidable": "^1.1.1"
+  }
+}
